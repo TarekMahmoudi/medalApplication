@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="model"
+            type="com.mahmoudi.projectone.data.model.AchievementsResponseModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="5dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_title"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@{model.title}"
+            android:textColor="@color/on_secondary"
+            app:layout_constraintEnd_toStartOf="@id/text_view_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Personal Record" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_label"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:background="@color/secondary"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@{model.label}"
+            android:textColor="@color/on_secondary_variant"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4 of 6" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_medal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            app:layout_constraintTop_toBottomOf="@id/text_view_title"
+            tools:listitem="@layout/row_medal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
